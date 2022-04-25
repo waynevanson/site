@@ -1,11 +1,11 @@
-import * as vanilla from '@vanilla-extract/css'
 import { reader, readonlyRecord } from 'fp-ts'
 import { flow, identity, pipe } from 'fp-ts/function'
 import * as traversal from 'monocle-ts/Traversal'
 import * as lens from 'monocle-ts/Lens'
 import { sequenceS } from 'fp-ts/lib/Apply'
+import { globalStyle, style } from '@vanilla-extract/css'
 
-export const className = vanilla.style({
+export const className = style({
   backgroundColor: 'red',
   padding: '2rem',
 })
@@ -39,27 +39,46 @@ export const colours = pipe(
     white: [18, 20, 80],
   } as readonlyRecord.ReadonlyRecord<ColourBase, HSL>,
   readonlyRecord.map(
-    sequenceS(reader.Apply)({
-      deep: flow(lighten(-10), saturate(-10)),
-      default: identity,
-      light: flow(lighten(10), saturate(-10)),
-    }),
-  ),
-  readonlyRecord.map(
-    readonlyRecord.map(([h, s, l]) => `hsl(${h}, ${s}%, ${l}%)`),
+    flow(
+      sequenceS(reader.Apply)({
+        deep: flow(lighten(-10), saturate(-20)),
+        default: identity,
+        light: flow(lighten(10), saturate(-10)),
+      }),
+      readonlyRecord.map(([h, s, l]) => `hsl(${h}, ${s}%, ${l}%)`),
+    ),
   ),
 )
 
-export const layout = vanilla.style({
+export const layout = style({
   margin: '0 auto',
   padding: '0 2rem',
-  maxWidth: '80rem',
+  maxWidth: '60rem',
   justifySelf: 'center',
 })
 
-vanilla.globalStyle('body', {
+globalStyle('body', {
   minHeight: '100vh',
   backgroundColor: colours.dark.deep,
   color: colours.white.default,
   fontFamily: 'sans-serif',
+})
+
+globalStyle('*:visited', {
+  color: colours.orange.deep,
+})
+
+export const navbar = style({
+  padding: '1rem 0',
+  display: 'flex',
+  gap: '0.5rem',
+})
+
+export const navbarButton = style({
+  padding: '0.25rem 0.5rem',
+  borderColor: colours.orange.light,
+  borderWidth: '0.1rem',
+  borderStyle: 'solid',
+  borderRadius: '0.5rem',
+  textDecoration: 'none',
 })
