@@ -1,0 +1,14 @@
+node_modules/
+.cache/
+public
+.pnpm-*
+
+# managed by sku
+.eslintrc
+.prettierrc
+coverage/
+dist-storybook/
+dist/
+report/
+tsconfig.json
+# end managed by sku
