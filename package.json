@@ -10,7 +10,7 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build && rm -r docs && mv public docs && touch docs/.nojekyll",
+    "build": "gatsby build && rm -r docs && mv public docs && touch docs/.nojekyll && echo waynevanson.com > docs/CNAME",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit"
