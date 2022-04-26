@@ -6,10 +6,18 @@ export const Layout: React.FC = (props) => {
   return (
     <div className={styles.layout}>
       <nav className={styles.navbar}>
-        <Link to="/" className={styles.navbarButton}>
+        <Link
+          to="/"
+          className={styles.navbarButton}
+          activeClassName={styles.navbarButtonActive}
+        >
           Home
         </Link>
-        <Link to="/blog" className={styles.navbarButton}>
+        <Link
+          to="/blog"
+          className={styles.navbarButton}
+          activeClassName={styles.navbarButtonActive}
+        >
           Blog
         </Link>
       </nav>
