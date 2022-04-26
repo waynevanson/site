@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-blog-index-tsx",
     "path": "/blog/",
-    "result": {"data":{"allFile":{"edges":[{"node":{"id":"f97090f6-ad12-59c2-be1c-5f897b1d3229","name":"welcome","relativePath":"blog/welcome.mdx","changeTime":"2022-04-25T08:56:22.410Z","modifiedTime":"2022-04-25T08:56:16.434Z"}}],"totalCount":1}},"pageContext":{}},
+    "result": {"data":{"allFile":{"edges":[{"node":{"id":"f97090f6-ad12-59c2-be1c-5f897b1d3229","name":"welcome","childrenMdx":[{"headings":[{"value":"Welcome - To the blog again!"}]}]}}]}},"pageContext":{}},
     "staticQueryHashes": []}
